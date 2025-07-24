@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kursy szachowe</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #222;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .course-card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+
+    .course-card:hover {
+      transform: scale(1.02);
+    }
+
+    .course-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    max-width: 300px;     /* zmniejsza rozmiar zdjęcia */
+    margin: 0 auto;        /* wyśrodkowanie */
+    }
+
+    .course-content {
+      padding: 1rem;
+    }
+
+    .course-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin: 0.5rem 0;
+    }
+
+    .course-description {
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    .course-price {
+      margin: 1rem 0;
+      font-size: 1.1rem;
+      color: #007B5E;
+      font-weight: bold;
+    }
+
+    .course-link {
+      display: inline-block;
+      text-decoration: none;
+      background-color: #007B5E;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .course-link:hover {
+      background-color: #005f46;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Moje kursy szachowe</h1>
+  </header>
+
+  <div class="container">
+    <!-- Przykładowy kurs -->
+    <div class="course-card">
+      <img src="zdjecia/e4 e5 głupoty okładka.png" alt="Okładka kursu">
+      <div class="course-content">
+        <h2 class="course-title">1. E4 E5 GŁUPOTY - jak wykorzystać słabe posunięcie przeciwnika</h2>
+        <p class="course-description">To króciutki, darmowy kursik, który składa się z 5 analiz...</p>
+        <p class="course-price">Za darmo</p>
+        <a href="glupoty.html" class="course-link" target="_blank">Zobacz kurs</a>
+      </div>
+    </div>
+
+   
+    <div class="course-card">
+      <img src="zdjecia/Hiszpanka okładka.png" alt="Okładka kursu">
+      <div class="course-content">
+        <h2 class="course-title">PARTIA HISZPAŃSKA - klucz do  strategicznej przewagi.</h2>
+        <p class="course-description">Partia hiszpańska to jeden z najstarszych i najbardziej prestiżowych debiutów w historii szachów...</p>
+        <p class="course-price">Cena: 50 zł</p>
+        <a href="hiszpanka.html" class="course-link" target="_blank">Zobacz kurs</a>
+      </div>
+    </div>
+
+    <div class="course-card">
+      <img src="zdjecia/Rosyjska okładka.png" alt="Okładka kursu">
+      <div class="course-content">
+        <h2 class="course-title">PETROW? - Jak złamać rosyjską solidarność.</h2>
+        <p class="course-description">Obrona rosyjska uchodzi za solidną, spokojną i... nudną. Wielu graczy czarnymi liczy na szybkie uproszczenia i suchy remis...</p>
+        <p class="course-price">Cena: 20 zł</p>
+        <a href="rosyjsk.html" class="course-link" target="_blank">Zobacz kurs</a>
+      </div>
+    </div>
+
+    <div class="course-card">
+      <img src="zdjecia/Philidor okładka.png" alt="Okładka kursu">
+      <div class="course-content">
+        <h2 class="course-title">JAK POKONONAĆ PHILIDORA.</h2>
+        <p class="course-description">W tym kursie pokażę Ci, jak natychmiast przejąć inicjatywę i zburzyć plan czarnych już w debiucie. Niezależnie jak zagra przeciwnik ty będzież na to gotowy...</p>
+        <p class="course-price">Cena: 20 zł</p>
+        <a href="philidor.html" class="course-link" target="_blank">Zobacz kurs</a>
+      </div>
+    </div>
+
+    <div class="course-card">
+      <img src="zdjecia/Caro-Kann.png" alt="Okładka kursu">
+      <div class="course-content">
+        <h2 class="course-title">RECEPTA NA OBRONĘ CARO-KANN.</h2>
+        <p class="course-description">Ten kurs to Twój kompletny przewodnik po skutecznej grze przeciwko Obronie Caro-Kann. Niezależnie od tego, którą linię wybierze przeciwnik – Ty będziesz gotowy..</p>
+        <p class="course-price">Cena: 20 zł</p>
+        <a href="caro-kann.html" class="course-link" target="_blank">Zobacz kurs</a>
+      </div>
+    </div>
+
+
+     <div class="course-card">
+      <img src="zdjecia/Kurs pirca okładka.png" alt="Okładka kursu">
+      <div class="course-content">
+        <h2 class="course-title">OBRONA PIRCA - Kontrola centrum klucz do wygranej.</h2>
+        <p class="course-description">W tym kursie poznasz kompletny, praktyczny repertuar przeciwko Obronie Pirca, który pozwoli Ci...</p>
+        <p class="course-price">Cena: 20 zł</p>
+        <a href="pirc.html" class="course-link" target="_blank">Zobacz kurs</a>
+      </div>
+    </div>
+
+     <div class="course-card">
+      <img src="zdjecia/e4 e5 okładka.png" alt="Okładka kursu">
+      <div class="course-content">
+        <h2 class="course-title">1. E4 E5 klasyczne Debiuty Szachowe.</h2>
+        <p class="course-description">Jeżeli potrzebujesz solidnych notatek i gotowego repertuaru po 1.e4 e5 – dobrze trafiłeś!..</p>
+        <p class="course-price">Cena: 80 zł</p>
+        <a href="e4_e5.html" class="course-link" target="_blank">Zobacz kurs</a>
+      </div>
+    </div>
+
+
+
+  </div>
+</body>
+</html>

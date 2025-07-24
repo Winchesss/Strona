@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>O mnie</title>
+  <link rel="stylesheet" href="css/o_mnie.css" />
+</head>
+<body>
+
+  <!-- Toggle switch -->
+  <label class="switch" role="switch" aria-label="Przełącz tryb ciemny/jasny">
+    <input type="checkbox" id="themeToggle" />
+    <span class="slider"></span>
+  </label>
+
+  <!-- HEADER -->
+  <header role="banner">
+    <h1>O mnie</h1>
+  </header>
+
+  <!-- MAIN -->
+  <main id="mainContent" role="main">
+    <!-- Sekcja biograficzna -->
+    <section>
+      <p>
+        Nazywam się Aleks Bancarewicz. Mam 18 lat, w szachy gram od 7 roku życia. Wciąż jestem aktywnym szachistą.
+        Moje największe osiągnięcie to srebrny medal na Mistrzostwach Polski do lat 10.
+        Przez 11 lat grania w szachy zdobyłem dużą wiedzę i teraz chcę się nią podzielić :) .
+        Posiadam certyfikat instruktora szachowego PZSzach.
+        Poza szachami lubię aktywnie spędzać czas. Biegam, trenuję kickboxing oraz chodzę na siłownię.
+        Szachy nauczyły mnie bardzo dużo i stały się nieodłącznym elementem mojego życia.
+      </p>
+
+      <figure>
+        <img src="zdjecia/ja.jpg" alt="Ja podczas grania partii szachowej" width="600" height="400" />
+        <figcaption>Ja podczas grania partii</figcaption>
+      </figure>
+
+      <br><br>
+
+      <figure>
+        <img src="zdjecia/certyfikat.png" alt="Certyfikat instruktora szachowego" width="500" height="600" />
+        <figcaption>Mój certyfikat</figcaption>
+      </figure>
+    </section>
+
+    <!-- Ranking FIDE -->
+    <section>
+      <h2>Mój ranking FIDE w szachach</h2>
+      <ul>
+        <li>Klasyczne: 1949</li>
+        <li>Szybkie: 1981</li>
+        <li>Błyskawiczne: 1870</li>
+        <li>
+          <a href="https://ratings.fide.com/profile/21838550" target="_blank" rel="noopener noreferrer">
+            Link do FIDE
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Ranking Chess.com -->
+    <section>
+      <h2>Ranking na platformie Chess.com</h2>
+      <ul>
+        <li>Blitz: 2427</li>
+        <li>Bullet: 2448</li>
+        <li>Szybkie: 2024</li>
+        <li>
+          <a href="https://www.chess.com/member/alexban" target="_blank" rel="noopener noreferrer">
+            Link do konta na Chess.com
+          </a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <p>Aleks Bancarewicz &copy; Wszelkie prawa zastrzeżone.</p>
+  </footer>
+
+  <!-- SKRYPT -->
+  <script>
+    // Toggle switch - update przy starcie
+    function updateTogglePosition() {
+      const theme = localStorage.getItem('theme');
+      const toggle = document.getElementById('themeToggle');
+
+      if (theme === 'dark') {
+        document.body.classList.add('dark');
+        toggle.checked = true;
+      } else if (theme === 'light') {
+        document.body.classList.remove('dark');
+        toggle.checked = false;
+      } else {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.body.classList.add('dark');
+          toggle.checked = true;
+        } else {
+          document.body.classList.remove('dark');
+          toggle.checked = false;
+        }
+      }
+    }
+
+document.addEventListener('DOMContentLoaded', function () {
+  updateTogglePosition();
+
+  const toggleSwitch = document.getElementById('themeToggle');
+  if (toggleSwitch) {
+    toggleSwitch.addEventListener('change', function () {
+      if (this.checked) {
+        document.body.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.body.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  }
+});
+
+  </script>
+
+</body>
+</html>

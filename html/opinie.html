@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opinie</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #0077cc;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    main {
+      padding: 30px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .review-card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .review-title {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .stars {
+      color: #FFD700;
+      margin-top: 5px;
+    }
+
+    #addReviewBtn,
+    #clearReviewsBtn {
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      margin: 20px auto;
+      padding: 15px;
+      font-size: 16px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #addReviewBtn:hover,
+    #clearReviewsBtn:hover {
+      background-color: #005fa3;
+    }
+
+    .delete-btn,
+    .edit-btn {
+      position: absolute;
+      top: 10px;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .delete-btn {
+      right: 10px;
+      background-color: #e74c3c;
+    }
+
+    .edit-btn {
+      right: 80px;
+      background-color: #f39c12;
+    }
+
+    .delete-btn:hover {
+      background-color: #c0392b;
+    }
+
+    .edit-btn:hover {
+      background-color: #d68910;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Opinie użytkowników</h1>
+  </header>
+
+  <main>
+    <div id="reviewsContainer"></div>
+
+    <button id="addReviewBtn">Dodaj opinię</button>
+    <button id="clearReviewsBtn">Wyczyść wszystkie opinie</button>
+  </main>
+
+  <script>
+    const reviewsContainer = document.getElementById('reviewsContainer');
+
+    function loadReviews() {
+      const reviews = JSON.parse(localStorage.getItem('opinie')) || [];
+      reviewsContainer.innerHTML = '';
+
+      reviews.forEach((review, index) => {
+        const div = document.createElement('div');
+        div.className = 'review-card';
+
+        div.innerHTML = `
+          <div class="review-title">${review.title}</div>
+          <div class="stars">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</div>
+          <br />
+          <div>${review.text}</div>
+          ${review.email ? `<div style="margin-top:10px;"><strong>Email:</strong> ${review.email}</div>` : ''}
+          ${review.date ? `<div style="font-size:0.85rem; color:gray; margin-top:5px;"><i>Dodano: ${review.date}</i></div>` : ''}
+          <button class="delete-btn" data-index="${index}">Usuń</button>
+          <button class="edit-btn" data-index="${index}">Edytuj</button>
+        `;
+
+        reviewsContainer.appendChild(div);
+      });
+
+      document.querySelectorAll('.delete-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const index = btn.getAttribute('data-index');
+          const reviews = JSON.parse(localStorage.getItem('opinie')) || [];
+          reviews.splice(index, 1);
+          localStorage.setItem('opinie', JSON.stringify(reviews));
+          loadReviews();
+        });
+      });
+
+      document.querySelectorAll('.edit-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const index = btn.getAttribute('data-index');
+          localStorage.setItem('editReviewIndex', index);
+          window.location.href = 'dodaj_opinie.html';
+        });
+      });
+    }
+
+    loadReviews();
+
+    document.getElementById('addReviewBtn').addEventListener('click', () => {
+      localStorage.removeItem('editReviewIndex');
+      window.location.href = 'dodaj_opinie.html';
+    });
+
+    document.getElementById('clearReviewsBtn').addEventListener('click', () => {
+      if (confirm('Czy na pewno chcesz usunąć wszystkie opinie?')) {
+        localStorage.removeItem('opinie');
+        loadReviews();
+      }
+    });
+  </script>
+</body>
+</html>

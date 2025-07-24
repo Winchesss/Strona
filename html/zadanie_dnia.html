@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zadanie dnia</title>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="css/zadanie dnia.css" />
+</head>
+
+<body>
+  <!-- Toggle switch -->
+  <div role="region" aria-label="Przełącznik trybu jasny/ciemny">
+    <label class="switch" for="themeToggle">
+      <input type="checkbox" id="themeToggle" aria-label="Przełącz na tryb ciemny" />
+      <span class="slider" aria-hidden="true"></span>
+    </label>
+  </div>
+
+  <header role="banner">
+    <h1>Białe zaczynają i wygrywają</h1>
+  </header>
+
+  <main role="main">
+    <section aria-labelledby="section-zadanie">
+      <h2 id="section-zadanie">Zadanie szachowe</h2>
+      <img src="zdjecia/zadanie.png" alt="Diagram przedstawiający zadanie szachowe" width="600" height="600"
+        onerror="this.alt='Nie udało się załadować obrazka z zadaniem szachowym.'" />
+    </section>
+
+    <section aria-labelledby="section-rozwiazanie">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer">
+          Pokaż/ukryj rozwiązanie
+        </button>
+        <div id="faq-answer" class="faq-answer">
+          34. Hxa7 Kxa7 35. Wa3 Ka8 36. Wa8#
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <p>Aleks Bancarewicz © Wszelkie prawa zastrzeżone</p>
+  </footer>
+
+  <script>
+    // Funkcja: bezpieczne pobranie elementu
+    function getElementSafe(selector) {
+      const el = document.querySelector(selector);
+      if (!el) {
+        console.error('Nie znaleziono elementu:', selector);
+      }
+      return el;
+    }
+
+    // Aktualizacja przełącznika przy starcie
+    function updateTogglePosition() {
+      const theme = localStorage.getItem('theme');
+      const toggle = document.getElementById('themeToggle');
+
+      if (!toggle) {
+        console.error('Nie znaleziono przełącznika #themeToggle');
+        return;
+      }
+
+      if (theme === 'dark') {
+        document.body.classList.add('dark-mode');
+        toggle.checked = true;
+      } else if (theme === 'light') {
+        document.body.classList.remove('dark-mode');
+        toggle.checked = false;
+      } else {
+        // Preferencje systemowe
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.body.classList.add('dark-mode');
+          toggle.checked = true;
+        } else {
+          document.body.classList.remove('dark-mode');
+          toggle.checked = false;
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      try {
+        updateTogglePosition();
+
+        // Obsługa przełącznika trybu
+        const toggleSwitch = document.getElementById('themeToggle');
+        if (toggleSwitch) {
+          toggleSwitch.addEventListener('change', function () {
+            if (this.checked) {
+              document.body.classList.add('dark-mode');
+              localStorage.setItem('theme', 'dark');
+              this.setAttribute('aria-label', 'Przełącz na tryb jasny');
+            } else {
+              document.body.classList.remove('dark-mode');
+              localStorage.setItem('theme', 'light');
+              this.setAttribute('aria-label', 'Przełącz na tryb ciemny');
+            }
+          });
+        } else {
+          console.error('Nie znaleziono przełącznika #themeToggle');
+        }
+
+        // Obsługa rozwijania "Rozwiązanie"
+        const faqButton = getElementSafe('.faq-question');
+        const faqAnswer = getElementSafe('.faq-answer');
+
+        if (faqButton && faqAnswer) {
+          faqButton.addEventListener('click', function () {
+            const isExpanded = faqButton.getAttribute('aria-expanded') === 'true';
+            faqButton.setAttribute('aria-expanded', String(!isExpanded));
+            faqAnswer.classList.toggle('open');
+          });
+        }
+
+      } catch (error) {
+        console.error('Błąd podczas inicjalizacji strony:', error);
+      }
+    });
+  </script>
+</body>
+</html>
+  

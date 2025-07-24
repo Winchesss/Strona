@@ -1,0 +1,188 @@
+:root {
+  --accent: #4a90e2;
+  --bg-light: #f4f4f9;
+  --text-light: #333;
+  --card-light: white;
+  --footer-light: #dddddd;
+  --bg-dark: #121212;
+  --text-dark: #e0e0e0;
+  --card-dark: #1e1e1e;
+  --footer-dark: #1a1a1a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+header {
+  background-color: var(--accent);
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+  border-radius: 12px;
+  position: relative;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+main {
+  margin: 40px auto;
+  max-width: 600px;
+  background-color: var(--card-light);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  transition: background-color 0.3s;
+}
+
+body.dark main {
+  background-color: var(--card-dark);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+li strong {
+  display: inline-block;
+  width: 80px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  background-color: var(--footer-light);
+  color: #555;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.95rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark footer {
+  background-color: var(--footer-dark);
+  color: #bbb;
+}
+
+/* Styl toggle switch */
+.switch {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  z-index: 999;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "🌞";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+  content: "🌙";
+}
+
+/* Formularz */
+form {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input, textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+button {
+  padding: 12px;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #326fb3;
+}
+
+#errorBox {
+  color: red;
+}

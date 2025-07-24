@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zapis na zajęcia</title>
+  <link rel="stylesheet" href="css/zapisy.css">
+</head>
+<body>
+  <label class="switch" aria-label="Przełącznik trybu kolorystycznego">
+    <input type="checkbox" id="themeToggle" onclick="toggleTheme()" aria-checked="false" role="switch" />
+    <span class="slider"></span>
+  </label>
+  
+  <h1>Zapisz się na zajęcia szachowe</h1>
+
+  <form id="zapisForm" novalidate>
+  <label for="imie">Imię i nazwisko:</label>
+  <input type="text" id="imie" name="imie" required aria-required="true">
+
+  <label for="telefon">Numer telefonu:</label>
+  <input type="tel" id="telefon" name="telefon" placeholder="np. 123456789" pattern="[0-9]{9}" required aria-required="true">
+
+  <label for="wiek">Wiek:</label>
+  <input type="number" id="wiek" name="wiek" min="5" max="99" required aria-required="true">
+
+  <label for="poziom">Poziom zaawansowania:</label>
+  <select id="poziom" name="poziom" required aria-required="true">
+    <option value="">-- wybierz --</option>
+    <option value="poczatkujacy">Początkujący</option>
+    <option value="sredniozaawansowany">Średniozaawansowany</option>
+    <option value="zaawansowany">Zaawansowany</option>
+  </select>
+
+  <!-- Poprawiona etykieta -->
+  <label for="cel1" class="cel-label">Cel uczestnictwa (opcjonalnie):</label>
+  <div class="checkbox-group">
+    <div class="checkbox-option">
+      <input type="checkbox" id="cel1" name="cel[]" value="pasja">
+      <label for="cel1">Szukam swojej pasji i myślę, że mogą to być szachy</label>
+    </div>
+    <div class="checkbox-option">
+      <input type="checkbox" id="cel2" name="cel[]" value="rozwoj">
+      <label for="cel2">Szachy mi się spodobały i chciałbym być w nie lepszy</label>
+    </div>
+    <div class="checkbox-option">
+      <input type="checkbox" id="cel3" name="cel[]" value="zawody">
+      <label for="cel3">Granie w zawodach oraz zdobywanie jak najwyższych miejsc</label>
+    </div>
+    <div class="checkbox-option">
+      <input type="checkbox" id="cel4" name="cel[]" value="cel_szczegolny">
+      <label for="cel4">Postawiłem sobie jakiś szachowy cel i chcę go spełnić</label>
+    </div>
+  </div>
+
+  <label for="wiadomosc">Dodatkowe informacje (opcjonalnie):</label>
+  <textarea id="wiadomosc" name="wiadomosc" rows="4"></textarea>
+
+  <button type="submit">Zapisz się</button>
+</form>
+
+  <div id="potwierdzenie" style="margin-top: 20px;" role="status" aria-live="polite"></div>
+
+  <!-- <script>
+    document.getElementById('zapisForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const imie = document.getElementById('imie');
+      const telefon = document.getElementById('telefon');
+      const wiek = document.getElementById('wiek');
+      const poziom = document.getElementById('poziom');
+      const potwierdzenie = document.getElementById('potwierdzenie');
+
+      let errors = [];
+
+      if (!imie.value.trim()) {
+        errors.push('Imię i nazwisko jest wymagane.');
+      }
+
+      if (!telefon.value.match(/^\d{9}$/)) {
+        errors.push('Numer telefonu musi składać się z 9 cyfr.');
+      }
+
+      const wiekVal = parseInt(wiek.value);
+      if (isNaN(wiekVal) || wiekVal < 5 || wiekVal > 99) {
+        errors.push('Wiek musi być liczbą od 5 do 99.');
+      }
+
+      if (!poziom.value) {
+        errors.push('Proszę wybrać poziom zaawansowania.');
+      }
+
+      if (errors.length > 0) {
+        potwierdzenie.innerHTML = '<ul style="color:red;"><li>' + errors.join('</li><li>') + '</li></ul>';
+        return;
+      }
+
+      potwierdzenie.innerHTML = '<p style="color:green;">Formularz został pomyślnie wysłany!</p>';
+      this.reset();
+    });
+  </script> -->
+
+  <script src="js/zapisy.js"></script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ – Zajęcia Szachowe</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="css/faq.css" />
+  
+  <!-- JavaScript -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Obsługa FAQ
+      const questions = document.querySelectorAll(".faq-question");
+      questions.forEach(function (question) {
+        question.addEventListener("click", function () {
+          const answer = this.nextElementSibling;
+          answer.style.display = (answer.style.display === "block") ? "none" : "block";
+        });
+      });
+
+      // Obsługa toggle switch
+      function updateTogglePosition() {
+        const theme = localStorage.getItem("theme");
+        const toggle = document.getElementById("themeToggle");
+
+        if (theme === "dark") {
+          document.body.classList.add("dark-mode");
+          toggle.checked = true;
+        } else if (theme === "light") {
+          document.body.classList.remove("dark-mode");
+          toggle.checked = false;
+        } else {
+          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.body.classList.add("dark-mode");
+            toggle.checked = true;
+          } else {
+            document.body.classList.remove("dark-mode");
+            toggle.checked = false;
+          }
+        }
+      }
+
+      updateTogglePosition();
+
+      const toggleSwitch = document.getElementById("themeToggle");
+      if (toggleSwitch) {
+        toggleSwitch.addEventListener("change", function () {
+          // ...
+        });
+      }
+
+      toggleSwitch.addEventListener("change", function () {
+        if (this.checked) {
+          document.body.classList.add("dark-mode");
+          localStorage.setItem("theme", "dark");
+        } else {
+          document.body.classList.remove("dark-mode");
+          localStorage.setItem("theme", "light");
+        }
+      });
+    });
+  </script>
+</head>
+
+<body>
+
+  <!-- Toggle switch -->
+ <label class="switch" role="switch" aria-label="Przełącznik trybu ciemnego">
+  <input type="checkbox" id="themeToggle" aria-checked="false" />
+  <span class="slider"></span>
+</label>
+
+
+  <!-- Tytuł -->
+   <header role="banner">
+    <h1>FAQ</h1>
+  </header>
+
+  <main id="mainContent" role="main">
+    <section class="faq-container">
+
+  <!-- FAQ -->
+  <div class="faq-container">
+    <div class="faq-item">  
+      <div class="faq-question">1. Dla kogo są przeznaczone indywidualne zajęcia szachowe?</div>
+      <div class="faq-answer">Zajęcia szachowe są skierowane do osób początkujących, które pragną solidnie opanować podstawy gry lub dopiero odkrywają fascynujący świat szachów i chcą poprawić swoje umiejętności. Oferuję również trening dla bardziej zaawansowanych graczy, którzy szukają profesjonalnego wsparcia w opracowaniu skutecznych debiutów oraz podniesieniu swojego poziomu gry. Zajęcia są dostosowywane do indywidualnych potrzeb, aby każdy mógł rozwijać się w swoim tempie i zgodnie ze swoimi celami.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">2. Jak mniej więcej wyglądają zajęcia?</div>
+      <div class="faq-answer">Indywidualne zajęcia szachowe są w pełni dostosowane do poziomu i potrzeb każdego zawodnika, dlatego ich przebieg może się różnić. Dla graczy początkujących koncentrujemy się na rozwijaniu umiejętności taktycznych poprzez zadania oraz analizę rozegranych partii. Bardziej zaawansowanym zawodnikom pomagam w dopracowaniu strategii debiutowej, dogłębnej analizie partii oraz doskonaleniu stylu gry. Najważniejsze, aby nauka szachów była nie tylko skuteczna, ale również satysfakcjonująca i przyjemna!</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">3. Czy muszę mieć własną szachownicę?</div>
+      <div class="faq-answer">Jeśli są to zajęcia stacjonarne, warto mieć własną szachownicę. Jeśli jednak jej nie posiadasz, wystarczy, że mnie o tym poinformujesz – przyniosę swoją, abyśmy mogli komfortowo pracować. Mimo wszystko zdecydowanie polecam mieć własny zestaw szachowy.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">4. Jak długo trwają zajęcia?</div>
+      <div class="faq-answer">Czas trwania zajęć ustalamy indywidualnie. Z praktycznego punktu widzenia zwykle trwają one od jednej do dwóch godzin.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">5. Czy zajęcia są stacjonarne czy online?</div>
+      <div class="faq-answer">Oferuję zarówno zajęcia online, jak i stacjonarne – zależnie od Twoich preferencji. Lekcje online prowadzę na platformie chess.com, ale możliwe są też inne rozwiązania. Zajęcia stacjonarne odbywają się u ucznia, co sprzyja komfortowi nauki i bezpośredniej interakcji.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">6. Jak często powinienem uczestniczyć w zajęciach?</div>
+      <div class="faq-answer">Częstotliwość zajęć zależy od Twoich celów i dostępnego czasu. Zalecam jedną do dwóch lekcji tygodniowo, aby zapewnić regularny postęp.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">7. Czy mogę odwołać lub przełożyć zajęcia?</div>
+      <div class="faq-answer">Tak – proszę jednak o wcześniejszą informację, najlepiej co najmniej 24 godziny przed planowaną lekcją.</div>
+    </div>
+  </div>
+  </section>
+</main>
+</body>
+</html>

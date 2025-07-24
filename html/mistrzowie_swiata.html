@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mistrzowie Świata w Szachach</title>
+  <link rel="stylesheet" href="css/mistrzowie_swiata.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="top" role="banner">
+    <h1>Mistrzowie Świata w Szachach</h1>
+
+    <!-- Przyciski sortowania -->
+    <nav aria-label="Sortowanie">
+      <button type="button" onclick="toggleNumericSort()" aria-label="Sortuj mistrzów numerycznie od 1 do 18">Sortuj numerycznie (1-18)</button>
+      <button type="button" onclick="sortAlphabetically()" aria-label="Sortuj mistrzów alfabetycznie od A do Z">Sortuj alfabetycznie (A-Z)</button>
+    </nav>
+  </header>
+
+  <!-- Główna zawartość -->
+  <main role="main" id="masters-list" aria-label="Lista mistrzów świata w szachach">
+    <!-- PRZYKŁADOWA KARTA (resztę wklejasz według wzoru) -->
+
+    <!-- Mistrz 18 -->
+    <div class="master-card">
+      <img src="zdjecia/Gukesh.avif" alt="Gukesh Dommaraju" class="master-img">
+      <div class="master-info">
+        <div class="master-name">18. Gukesh Dommaraju</div>
+        <div class="master-description">
+          Gukesh D, cudowne dziecko indyjskich szachów, został najmłodszym mistrzem świata w historii, detronizując Dinga Lirena w wieku zaledwie 18 lat. Znany z chłodnej precyzji, odporności psychicznej i odwagi w kluczowych momentach, łączy dojrzałość Kasparowa z dynamiką Carlsena — i dopiero się rozkręca.        </div>
+        <div class="master-footer">
+          <a href="https://pl.wikipedia.org/wiki/Dommaraju_Gukesh" target="_blank">Więcej informacji</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mistrz 17 -->
+    <div class="master-card">
+        <img src="zdjecia/Ding.jpeg" alt="Ding Liren" class="master-img">
+        <div class="master-info">
+          <div class="master-name">17. Ding Liren</div>
+          <div class="master-description">
+            Ding, pierwszy chiński mistrz świata, zdobył tytuł po rezygnacji Carlsena, a nie bezpośrednim zwycięstwie nad nim. Choć cichy i wytrwały, po objęciu tronu prezentował niestabilną formę, co budzi wątpliwości co do jego pozycji na szczycie szachowego świata.          
+          </div>
+          <div class="master-footer">
+            <a href="https://pl.wikipedia.org/wiki/Ding_Liren" target="_blank">Więcej informacji</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mistrz 16 -->
+    <div class="master-card">
+        <img src="zdjecia/magnus.jpg" alt="Magnus Carlsen" class="master-img">
+        <div class="master-info">
+          <div class="master-name">16. Magnus Carlsen</div>
+          <div class="master-description">
+            Szachowy Mozart. Norweg, który zrewolucjonizował podejście do treningu, gry i marketingu. Gra intuicyjnie, skutecznie, potrafi jak nikt inny "zamęczyć przeciwnika". Gra bardzo praktycznie i tylko czeka na swój moment, a jak go dostanie, to nie wypuszcza. Uważany za najlepszego szachiste wszechczasów.         
+          </div>
+          <div class="master-footer">
+            <a href="https://pl.wikipedia.org/wiki/Magnus_Carlsen" target="_blank">Więcej informacji</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mistrz 15 -->
+    <div class="master-card">
+        <img src="zdjecia/Anand.jpg" alt="Viswanathan Anand" class="master-img">
+        <div class="master-info">
+          <div class="master-name">15. Viswanathan Anand</div>
+          <div class="master-description">
+            "Tygrys z Madrasu". Błyskotliwy, szybki, niezwykle inteligentny. Pierwszy mistrz świata z Indii, który zainspirował pokolenia Azjatów do gry w szachy. Znakomity w każdym tempie gry.          
+          </div>
+          <div class="master-footer">
+            <a href="https://pl.wikipedia.org/wiki/Viswanathan_Anand" target="_blank">Więcej informacji</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mistrz 14 -->
+    <div class="master-card">
+        <img src="zdjecia/kramnik.jpg" alt="Vladimir Kramnik" class="master-img">
+        <div class="master-info">
+          <div class="master-name">14. Vladimir Kramnik</div>
+          <div class="master-description">
+            Cichy zabójca, który detronizował Kasparowa. Wprowadził obronę berlińską na salony, zyskał sławę mistrza równowagi i precyzji. Grał prosto, ale skutecznie jak chirurg z lodem w żyle.          </div>
+          <div class="master-footer">
+            <a href="https://pl.wikipedia.org/wiki/W%C5%82adimir_Kramnik" target="_blank">Więcej informacji</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mistrz 13 -->
+    <div class="master-card">
+        <img src="zdjecia/kasparov.jpg" alt="Garry Kasparow" class="master-img">
+        <div class="master-info">
+          <div class="master-name">13. Garry Kasparow</div>
+          <div class="master-description">
+            Wulkan energii i wizjoner gry. Połączył dynamikę z przygotowaniem komputerowym. Jego starcia z Karpowem to epopeja. Kasparow to nie tylko mistrz, ale i lider ery cyfrowej w szachach.         
+          </div>
+          <div class="master-footer">
+            <a href="https://pl.wikipedia.org/wiki/Garry_Kasparow" target="_blank">Więcej informacji</a>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Mistrz 12 -->
+    <div class="master-card">
+        <img src="zdjecia/Karpov.jpg" alt="Anatolij Karpow" class="master-img">
+        <div class="master-info">
+          <div class="master-name">12. Anatolij Karpow</div>
+          <div class="master-description">
+            Lodowaty strateg. Karpow grał bez emocji, z chirurgiczną precyzją. Wyciskał przewagi z pozornie równych pozycji, zabijając powoli i bezlitośnie. Szachowa perfekcja w czystej postaci.          </div>
+          <div class="master-footer">
+            <a href="https://pl.wikipedia.org/wiki/Anatolij_Karpow" target="_blank">Więcej informacji</a>
+          </div>
+        </div>
+      </div>
+
+    <!-- Mistrz 11 -->
+    <div class="master-card">
+        <img src="zdjecia/fisher.jpg" alt="Bobby Fischer" class="master-img">
+        <div class="master-info">
+          <div class="master-name">11. Bobby Fischer</div>
+          <div class="master-description">
+            Samotny rewolucjonista. Geniusz, który pokonał ZSRR w jednej partii. Jego obsesyjna dążność do doskonałości uczyniła go legendą, choć jego panowanie było krótkie. Zmienił szachy raz na zawsze.          </div>
+          <div class="master-footer">
+            <a href="https://pl.wikipedia.org/wiki/Bobby_Fischer" target="_blank">Więcej informacji</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mistrz 10 -->
+    <div class="master-card">
+        <img src="zdjecia/spasky.jpg" alt="Boris Spassky" class="master-img">
+        <div class="master-info">
+          <div class="master-name">10. Boris Spassky</div>
+          <div class="master-description">
+            Uniwersalny geniusz. Potrafił grać taktycznie i pozycyjnie, dostosowując się do przeciwnika. Jego pojedynki z Fischerem to legenda, a sam Spassky był gentlemanem szachownicy.          </div>
+          <div class="master-footer">
+            <a href="https://pl.wikipedia.org/wiki/Boris_Spasski" target="_blank">Więcej informacji</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mistrz 9 -->
+    <div class="master-card">
+        <img src="zdjecia/petrosjan.jpg" alt="Tigran V. Petrosian" class="master-img">
+        <div class="master-info">
+          <div class="master-name">9. Tigran V. Petrosian</div>
+          <div class="master-description">
+            Człowiek-twierdza. Nikt nie bronił się jak Petrosian. Jego styl był antytezą Tala – spokojny, cierpliwy, niemal nie do przebicia. Mistrz profilaktyki i cichej dominacji.          
+          </div>
+          <div class="master-footer">
+            <a href="https://pl.wikipedia.org/wiki/Tigran_Petrosjan" target="_blank">Więcej informacji</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mistrz 8 -->
+    <div class="master-card">
+        <img src="zdjecia/tal.jpg" alt="Mikhail Tal" class="master-img">
+        <div class="master-info">
+          <div class="master-name">8. Mikhail Tal</div>
+          <div class="master-description">
+            "Magik z Rygi", czarodziej taktyki. Jego partie to pokaz sztuczek, kombinacji i brawury. Grał z fantazją, często ryzykując wszystko. Wygrywał, bo widział to, czego inni nie dostrzegali nawet po analizie.          </div>
+          <div class="master-footer">
+            <a href="https://pl.wikipedia.org/wiki/Michai%C5%82_Tal" target="_blank">Więcej informacji</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mistrz 7 -->
+    <div class="master-card">
+        <img src="zdjecia/smyslov.jpg" alt="Vasily Smyslov" class="master-img">
+        <div class="master-info">
+          <div class="master-name">7. Vasily Smyslov</div>
+          <div class="master-description">
+            Mistrz harmonii i elegancji. Grał tak, jakby każdy ruch był nutą w szachowej symfonii. Oprócz szachów był też śpiewakiem operowym, co odzwierciedlało się w jego grze – pełnej gracji i wyczucia.          </div>
+          <div class="master-footer">
+            <a href="https://pl.wikipedia.org/wiki/Wasilij_Smys%C5%82ow" target="_blank">Więcej informacji</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mistrz 6 -->
+    <div class="master-card">
+        <img src="zdjecia/botvinik.jpg" alt="Mikhail Botvinnik" class="master-img">
+        <div class="master-info">
+          <div class="master-name">6. Mikhail Botvinnik</div>
+          <div class="master-description">
+            Inżynier szachów i twórca radzieckiej szkoły. Podchodził do gry systematycznie, niemal naukowo. Był mentorem takich legend jak Kasparow czy Karpow. W jego partiach widać dyscyplinę i strategiczne mistrzostwo.          </div>
+          <div class="master-footer">
+            <a href="https://pl.wikipedia.org/wiki/Michai%C5%82_Botwinnik" target="_blank">Więcej informacji</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mistrz 5 -->
+    <div class="master-card">
+        <img src="zdjecia/euwe.jpg" alt="Max Euwe" class="master-img">
+        <div class="master-info">
+          <div class="master-name">5. Max Euwe</div>
+          <div class="master-description">
+            Holenderski mistrz logiki. Z zawodu matematyk i nauczyciel, na szachownicy walczył rozumem, nie emocjami. Jego zwycięstwo nad Alekhinem było niespodzianką, ale pokazującą, że precyzja może pokonać chaos.          
+          </div>
+          <div class="master-footer">
+            <a href="https://pl.wikipedia.org/wiki/Max_Euwe" target="_blank">Więcej informacji</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mistrz 4 -->
+    <div class="master-card">
+        <img src="zdjecia/alehin.jpg" alt="Alexander Alekhine" class="master-img">
+        <div class="master-info">
+          <div class="master-name">4. Alexander Alekhine</div>
+          <div class="master-description">
+            Szachowy artysta z duszą wojownika. Jego partie przypominały poematy taktyczne, pełne zaskakujących zwrotów akcji. Grał z pasją, a jego dźwięczna analiza przeszła do historii.          </div>
+          <div class="master-footer">
+            <a href="https://pl.wikipedia.org/wiki/Aleksandr_Alechin" target="_blank">Więcej informacji</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mistrz 3 -->
+    <div class="master-card">
+        <img src="zdjecia/capablanca.jpg" alt="Jose Raul Capablanca" class="master-img">
+        <div class="master-info">
+          <div class="master-name">3. Jose Raul Capablanca</div>
+          <div class="master-description">
+            Cudowne dziecko z Kuby. Grał z tak niesamowitą lekkością i intuicją, że jego ruchy wyglądały na oczywiste... dopiero po fakcie. Mistrz prostoty, który nigdy nie przegrywał bez potrzeby.          
+          </div>
+          <div class="master-footer">
+            <a href="https://pl.wikipedia.org/wiki/Jos%C3%A9_Ra%C3%BAl_Capablanca" target="_blank">Więcej informacji</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mistrz 2 -->
+    <div class="master-card">
+        <img src="zdjecia/lasker.jpg" alt="Emanuel Lasker" class="master-img">
+        <div class="master-info">
+          <div class="master-name">2. Emanuel Lasker</div>
+          <div class="master-description">
+            Matematyk, filozof i geniusz psychologii szachowej. Przez 27 lat nie oddał korony, potrafiąc zmieniać styl gry tak, by wyprowadzać przeciwników z równowagi. Niektórzy mówili, że gra nie tyle w szachy, co w umysły swoich rywali.          </div>
+          <div class="master-footer">
+            <a href="https://pl.wikipedia.org/wiki/Emanuel_Lasker" target="_blank">Więcej informacji</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mistrz 1 -->
+    <div class="master-card">
+        <img src="zdjecia/steinitz.jpg" alt="Wilhelm Steinitz" class="master-img">
+        <div class="master-info">
+          <div class="master-name">1. Wilhelm Steinitz</div>
+          <div class="master-description">
+            Pierwszy oficjalny mistrz świata w szachach. Znany jako ojciec nowoczesnej strategii. To on wprowadził pozycję, strukturę pionków i długoterminowe planowanie do świata szachów, który do tej pory znał głównie szalone ataki. Steinitz grał tak, jakby przewidywał XXI wiek.          
+          </div>
+          <div class="master-footer">
+            <a href="https://pl.wikipedia.org/wiki/Wilhelm_Steinitz" target="_blank">Więcej informacji</a>
+          </div>
+        </div>
+      </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <p>&copy; 2025 Aleks Bancarewicz. Wszelkie prawa zastrzeżone.</p>
+  </footer>
+
+  <!-- Przycisk przewijania na górę -->
+  <button id="scrollToTopBtn" class="scrollToTopBtn" type="button" aria-label="Wróć na górę strony">↥ Wróć na górę</button>
+
+  <!-- Skrypt -->
+  <script src="js/mistrzowie_swiata.js"></script>
+</body>
+</html>

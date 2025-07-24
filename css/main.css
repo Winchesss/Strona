@@ -1,0 +1,175 @@
+/* Ogólne ustawienia ciała dokumentu */
+body {
+  margin: 0;
+  background-color: #2F3336;
+  color: #efefef;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 17px;
+}
+
+/* Logo strony */
+h1.logo {
+  font-size: 44px;
+  font-weight: 700;
+  color: #ddd;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
+/* Pasek nawigacyjny */
+#topnav {
+  background-color: #1c74b2;
+  text-align: center;
+}
+
+/* Lista w menu głównym */
+.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 10px;
+  font-size: 18px;
+  display: flex;               /* Flexbox = układ poziomy */
+  flex-wrap: wrap;             /* Zawijanie na mniejszych ekranach */
+  justify-content: center;     /* Centrowanie poziome */
+  gap: 10px;                   /* Odstępy między elementami */
+}
+
+/* Styl pojedynczych pozycji menu */
+.menu > li {
+  border-right: 1px dashed #0a2b42;
+  padding: 5px 15px;
+}
+
+/* Lewa granica dla pierwszego elementu */
+.menu > li:first-child {
+  border-left: 1px dashed #0a2b42;
+}
+
+/* Linki w menu */
+.menu a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  color: #0a2b42;
+}
+
+/* Sekcja opisu i treści */
+.describtion,
+.discover {
+  max-width: 950px;
+  width: 90%;          /* Elastyczna szerokość */
+  margin: 0 auto;
+  text-align: center;
+  padding: 30px;
+}
+
+.describtion p {
+  line-height: 1.6;
+  font-size: 20px;
+  padding: 30px 0;
+}
+
+/* Tytuły sekcji */
+h1 {
+  font-size: 36px;
+  font-weight: 400;
+  color: #39a5f1;
+  margin-bottom: 20px;
+}
+
+/* Sekcja z dodatkowymi linkami */
+#more {
+  background-color: #191d21;
+  padding: 30px 0;
+  border-radius: 5px;
+}
+
+/* Układ linków */
+.other-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Styl linków dodatkowych */
+.other-links a {
+  background-color: #1c74b2;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.other-links a:hover {
+  background-color: #14588d;
+}
+
+/* Stopka */
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+  padding: 30px;
+  color: #aaa;
+}
+
+/* ================= */
+/* RESPONSYWNOŚĆ     */
+/* ================= */
+
+@media (max-width: 768px) {
+  h1.logo {
+    font-size: 32px;
+    letter-spacing: 3px;
+  }
+
+  .menu {
+    flex-direction: column;   /* Menu staje się pionowe */
+    gap: 5px;
+  }
+
+  .menu > li {
+    border: none;
+    padding: 8px 0;
+  }
+
+  .describtion p {
+    font-size: 18px;
+    padding: 15px 0;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .other-links a {
+    padding: 10px;
+    font-size: 16px;
+  }
+}
+
+/* Smartfony */
+@media (max-width: 480px) {
+  h1.logo {
+    font-size: 24px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .menu {
+    font-size: 16px;
+  }
+
+  .describtion p {
+    font-size: 16px;
+  }
+}

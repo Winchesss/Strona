@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cytaty Szachowe</title>
+  <link rel="stylesheet" href="css/szachowe_cytaty.css"> <!-- dodajemy plik CSS -->
+</head>
+<body>
+  <!-- Toggle switch -->
+   <div role="region" aria-label="Przełącznik trybu jasny/ciemny">
+    <label class="switch" for="themeToggle">
+      <input type="checkbox" id="themeToggle" aria-label="Przełącz na tryb ciemny" />
+      <span class="slider" aria-hidden="true"></span>
+    </label>
+  </div>  
+
+  <!-- Nagłówek -->
+  <header id="top" role="banner">
+    <h1>Najlepsze Cytaty Szachowe</h1>
+  </header>
+
+  <!-- Sekcja wyszukiwarki i losowania -->
+  <section class="controls" role="region" aria-labelledby="controls-heading">
+    <input type="text" id="search" placeholder="Szukaj cytatu..." oninput="filterQuotes()" />
+    <button onclick="showRandomQuote()">🎲 Wylosuj cytat dnia</button>
+  </section>
+
+  <!-- Cytaty -->
+  <main id="quotes-container"></main>
+
+  <!-- Cytat dnia -->
+  <div id="random-quote"></div>
+
+  </br>
+
+  <!-- Stopka -->
+  <footer>
+    <p>&copy; 2025 Aleks Bancarewicz</p>
+  </footer>
+
+  <!-- Przycisk przewijania -->
+  <button class="scroll-top" onclick="scrollToTop()">↥ Wróć na górę</button>
+
+  <!-- Skrypt -->
+  <script src="js/szachowe_cytaty.js"></script> <!--  JS w osobnym pliku -->
+</body>
+</html>

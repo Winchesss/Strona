@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt</title>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="css/kontakt.css" />
+</head>
+
+<body>
+  <!-- Toggle switch -->
+  <label class="switch">
+    <input type="checkbox" id="themeToggle" />  
+    <span class="slider"></span>
+  </label>
+
+  <header role="banner">
+    <h1>Kontakt</h1>  
+  </header>
+
+  <main>
+     <section aria-labelledby="contactInfo">
+      <h2 id="contactInfo">Dane kontaktowe</h2>
+      <ul>
+        <li>Jeżeli masz pytania lub jesteś zainteresowany/a współpracą, skontaktuj się ze mną mailowo lub telefonicznie.</li>
+        <li><strong>Mail:</strong> <a href="mailto:aleks.bancarewicz@gmail.com">aleks.bancarewicz@gmail.com</a></li>
+        <li><strong>Telefon:</strong> <a href="tel:+48576833040">576 833 040</a></li>
+      </ul>
+    </section>
+
+    <!-- Formularz kontaktowy -->
+    <section aria-labelledby="formTitle">
+      <h2 id="formTitle">Formularz kontaktowy</h2>
+      <form id="contactForm" role="form" aria-label="Formularz kontaktowy">
+        <label for="email">Twój e-mail:</label>
+        <input type="email" id="email" placeholder="np. jan@example.com" required aria-describedby="emailError">
+
+        <label for="message">Wiadomość:</label>
+        <textarea id="message" rows="5" placeholder="Wpisz swoją wiadomość..." required aria-describedby="messageError"></textarea>
+
+        <div id="emailError" class="error-message" aria-live="polite"></div>
+        <div id="messageError" class="error-message" aria-live="polite"></div>
+
+        <button type="submit">Wyślij</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Aleks Bancarewicz. Wszystkie prawa zastrzeżone.</p>
+  </footer>
+
+  <script>
+    // Obsługa toggle switch
+    function updateTogglePosition() {
+      const theme = localStorage.getItem('theme');
+      const toggle = document.getElementById('themeToggle');
+
+      if (theme === 'dark') {
+        document.body.classList.add('dark');
+        toggle.checked = true;
+      } else if (theme === 'light') {
+        document.body.classList.remove('dark');
+        toggle.checked = false;
+      } else {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.body.classList.add('dark');
+          toggle.checked = true;
+        } else {
+          document.body.classList.remove('dark');
+          toggle.checked = false;
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      updateTogglePosition();
+
+      const toggleSwitch = document.getElementById('themeToggle');
+      toggleSwitch.addEventListener('change', function() {
+        if (this.checked) {
+          document.body.classList.add('dark');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          document.body.classList.remove('dark');
+          localStorage.setItem('theme', 'light');
+        }
+      });
+    });
+
+    // Walidacja formularza kontaktowego
+   document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+      const emailErrorBox = document.getElementById("emailError");
+      const messageErrorBox = document.getElementById("messageError");
+
+      emailErrorBox.textContent = "";
+      messageErrorBox.textContent = "";
+
+      let isValid = true;
+
+      const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+      if (!emailPattern.test(email)) {
+        emailErrorBox.textContent = "Wprowadź poprawny adres e-mail.";
+        document.getElementById("email").setAttribute("aria-invalid", "true");
+        isValid = false;
+      } else {
+        document.getElementById("email").removeAttribute("aria-invalid");
+      }
+
+      if (message.length < 5) {
+        messageErrorBox.textContent = "Wiadomość musi mieć przynajmniej 5 znaków.";
+        document.getElementById("message").setAttribute("aria-invalid", "true");
+        isValid = false;
+      } else {
+        document.getElementById("message").removeAttribute("aria-invalid");
+      }
+
+      // SUKCES
+      if (isValid) {
+        alert("Wiadomość została wysłana!");
+        this.reset();
+      }
+    });
+  </script>
+</body>
+</html>

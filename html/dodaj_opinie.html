@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dodaj opinię</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 30px;
+    }
+
+    form {
+      max-width: 600px;
+      margin: auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+
+    .star-rating {
+      direction: rtl;
+      display: inline-flex;
+      font-size: 2rem;
+      margin-top: 8px;
+    }
+
+    .star-rating input {
+      display: none;
+    }
+
+    .star-rating label {
+      color: #ccc;
+      cursor: pointer;
+    }
+
+    .star-rating input:checked ~ label,
+    .star-rating label:hover,
+    .star-rating label:hover ~ label {
+      color: #FFD700;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="reviewForm">
+    <h1>Dodaj opinię</h1>
+
+    <label for="title">Nazwa uzytkownika:</label>
+    <input type="text" id="title" required>
+
+    <label for="text">Treść opinii:</label>
+    <textarea id="text" rows="5" required></textarea>
+
+    <label>Ocena:</label>
+    <div class="star-rating">
+      <input type="radio" name="rating" id="star5" value="5"><label for="star5">★</label>
+      <input type="radio" name="rating" id="star4" value="4"><label for="star4">★</label>
+      <input type="radio" name="rating" id="star3" value="3"><label for="star3">★</label>
+      <input type="radio" name="rating" id="star2" value="2"><label for="star2">★</label>
+      <input type="radio" name="rating" id="star1" value="1"><label for="star1">★</label>
+    </div>
+
+    <label for="email">Email (opcjonalnie):</label>
+    <input type="email" id="email">
+
+    <button type="submit">Zapisz opinię</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('reviewForm');
+    const editIndex = localStorage.getItem('editReviewIndex');
+
+    if (editIndex !== null) {
+      const reviews = JSON.parse(localStorage.getItem('opinie')) || [];
+      const review = reviews[editIndex];
+
+      if (review) {
+        document.getElementById('title').value = review.title;
+        document.getElementById('text').value = review.text;
+        document.getElementById('email').value = review.email || '';
+
+        const rating = review.rating;
+        if (rating) {
+          document.getElementById(`star${rating}`).checked = true;
+        }
+      }
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const title = document.getElementById('title').value.trim();
+      const text = document.getElementById('text').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const rating = parseInt(document.querySelector('input[name="rating"]:checked')?.value);
+
+      if (!title || !text || !rating) {
+        alert('Proszę uzupełnić wszystkie wymagane pola i wybrać ocenę.');
+        return;
+      }
+
+      const newReview = {
+        title,
+        text,
+        rating,
+        email,
+        date: new Date().toLocaleDateString('pl-PL')
+      };
+
+      const reviews = JSON.parse(localStorage.getItem('opinie')) || [];
+
+      if (editIndex !== null) {
+        reviews[editIndex] = newReview;
+        localStorage.removeItem('editReviewIndex');
+      } else {
+        reviews.push(newReview);
+      }
+
+      localStorage.setItem('opinie', JSON.stringify(reviews));
+      window.location.href = 'opinie.html';
+    });
+  </script>
+</body>
+</html>

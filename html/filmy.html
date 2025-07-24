@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Filmy o Tematyce Szachowej</title>
+  <link rel="stylesheet" href="css/filmy.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header role="banner">
+    <h1>Filmy o Tematyce Szachowej</h1>
+
+    <!-- Nawigacja sortowania -->
+    <nav aria-label="Sortowanie filmów">
+      <button type="button" onclick="sortMovies()" aria-label="Sortuj filmy alfabetycznie">Sortuj alfabetycznie</button>
+    </nav>
+  </header>
+
+  <!-- Główna zawartość -->
+  <main role="main" id="movies-list" aria-label="Lista filmów o tematyce szachowej">
+    
+    <!-- Film 1 -->
+    <div class="movie-card">
+      <img src="zdjecia/queen.jpg" alt="The Queen's Gambit" class="movie-img">
+      <div class="movie-info">
+        <div class="movie-title">The Queen's Gambit</div>
+        <div class="movie-description">
+          Polski tytuł "Gambit królowej", to serial Netflix, który opowiada historię utalentowanej szachistki, Beth Harmon.
+        </div>
+        <div class="movie-footer">
+          <a href="https://www.filmweb.pl/serial/Gambit+kr%C3%B3lowej-2020-840024" target="_blank">Link do filmweb</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Film 2 -->
+    <div class="movie-card">
+      <img src="zdjecia/bobby_film.jpg" alt="Searching for Bobby Fischer" class="movie-img">
+      <div class="movie-info">
+        <div class="movie-title">Searching for Bobby Fischer</div>
+        <div class="movie-description">
+          Polski tytuł "szachowe dzieciństwo". Film opowiada historię młodego chłopca z talentem do szachów.
+        </div>
+        <div class="movie-footer">
+          <a href="https://www.filmweb.pl/film/Szachowe+dzieci%C5%84stwo-1993-9407" target="_blank">Link do filmweb</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Film 3 -->
+    <div class="movie-card">
+      <img src="zdjecia/pionek.jpg" alt="Pawn Sacrifice" class="movie-img">
+      <div class="movie-info">
+        <div class="movie-title">Pawn Sacrifice</div>
+        <div class="movie-description">
+          Polski tytuł "Pionek". Historia Bobby'ego Fischera i jego rywalizacji z Borisem Spasskym.
+        </div>
+        <div class="movie-footer">
+          <a href="https://www.filmweb.pl/film/Pionek-2014-563486" target="_blank">Link do filmweb</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Film 4 -->
+    <div class="movie-card">
+      <img src="zdjecia/katwe.jpg" alt="Queen of Katwe" class="movie-img">
+      <div class="movie-info">
+        <div class="movie-title">Queen of Katwe</div>
+        <div class="movie-description">
+          Polski tytuł "Królowa Katwe". Inspirowana prawdziwą historią Phiony Mutesi z Ugandy.
+        </div>
+        <div class="movie-footer">
+          <a href="https://www.filmweb.pl/film/Kr%C3%B3lowa+Katwe-2016-738176" target="_blank">Link do filmweb</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Film 5 -->
+    <div class="movie-card">
+      <img src="zdjecia/luzin.jpg" alt="The Luzhin Defence" class="movie-img">
+      <div class="movie-info">
+        <div class="movie-title">The Luzhin Defence</div>
+        <div class="movie-description">
+          Polski tytuł "Obrona Łużyna". Historia ekscentrycznego rosyjskiego szachisty.
+        </div>
+        <div class="movie-footer">
+          <a href="https://www.filmweb.pl/film/Obrona+%C5%81u%C5%BCyna-2000-113180" target="_blank">Link do filmweb</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Film 6 -->
+    <div class="movie-card">
+      <img src="zdjecia/ukryta_gra.jpg" alt="The Coldest Game" class="movie-img">
+      <div class="movie-info">
+        <div class="movie-title">The Coldest Game</div>
+        <div class="movie-description">
+          Polski tytuł "Ukryta gra". Thriller szpiegowski w czasie kryzysu kubańskiego.
+        </div>
+        <div class="movie-footer">
+          <a href="https://www.filmweb.pl/film/Ukryta+gra-2019-803482" target="_blank">Link do filmweb</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Film 7 -->
+    <div class="movie-card">
+      <img src="zdjecia/magnus_film.jpg" alt="Magnus" class="movie-img">
+      <div class="movie-info">
+        <div class="movie-title">Magnus</div>
+        <div class="movie-description">
+          Dokument o drodze Magnusa Carlsena do tytułu mistrza świata.
+        </div>
+        <div class="movie-footer">
+          <a href="https://www.filmweb.pl/film/Magnus-2016-761865" target="_blank">Link do filmweb</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Film 8 -->
+    <div class="movie-card">
+      <img src="zdjecia/chess_fever.jpg" alt="Chess Fever" class="movie-img">
+      <div class="movie-info">
+        <div class="movie-title">Chess Fever</div>
+        <div class="movie-description">
+          Polski tytuł "Gorączka szachowa". Radziecka krótkometrażowa komedia niema.
+        </div>
+        <div class="movie-footer">
+          <a href="https://www.filmweb.pl/film/Szachowa+gor%C4%85czka-1925-102719" target="_blank">Link do filmweb</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Film 9 -->
+    <div class="movie-card">
+      <img src="zdjecia/brooklyn.jpg" alt="Brooklyn Castle" class="movie-img">
+      <div class="movie-info">
+        <div class="movie-title">Brooklyn Castle</div>
+        <div class="movie-description">
+          Dokument o szkole w Brooklynie i sukcesach jej uczniów w szachach.
+        </div>
+        <div class="movie-footer">
+          <a href="https://www.filmweb.pl/film/Brooklyn+Castle-2012-648748" target="_blank">Link do filmweb</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <p>&copy; 2025 Aleks Bancarewicz. Wszelkie prawa zastrzeżone.</p>
+  </footer>
+
+  <script src="js/filmy.js"></script>
+</body>
+</html>
