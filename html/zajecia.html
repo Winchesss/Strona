@@ -7,14 +7,13 @@
   <link rel="stylesheet" href="css/zajecia.css" />
 </head>
 <body>
-
-  <!-- Toggle switch -->
+  <!-- Przełącznik trybu ciemnego/jasnego -->
   <label class="switch" role="switch" aria-label="Przełącz tryb ciemny/jasny">
-    <input type="checkbox" id="themeToggle" />
+    <input type="checkbox" id="themeToggle" aria-checked="false" />
     <span class="slider"></span>
   </label>
 
-  <!-- Nagłówek -->
+  <!-- Nagłówek strony -->
   <header role="banner">
     <h1>Zajęcia Szachowe</h1>
   </header>
@@ -22,40 +21,39 @@
   <!-- Główna zawartość -->
   <main id="mainContent" role="main">
     <!-- Sekcja o zajęciach -->
-    <section>
-      <h2>O zajęciach</h2>
+    <section aria-labelledby="about-classes">
+      <h2 id="about-classes">O zajęciach 🧑‍🏫</h2>
       <p>
-        Oferuję zajęcia stacjonarne (na terenie Białegostoku) oraz zajęcia online – np. na platformie
-        <a href="https://chess.com" target="_blank" rel="noopener noreferrer">chess.com</a>.
+        Oferuję zajęcia stacjonarne (na terenie Białegostoku) 🏫 oraz zajęcia online 💻 – np. na platformie
+        <a href="https://chess.com" target="_blank" rel="noopener noreferrer">chess.com</a> ♟️.
       </p>
       <p>
-        Zakres materiału zależy od zawodnika – każdy ma swoje mocne i słabe strony.
-        Istnieją jednak elementy, które zawsze warto rozwijać:
+        Zakres materiału zależy od zawodnika  – każdy ma swoje mocne 💪 i słabe strony 😅.
+        Istnieją jednak elementy, które zawsze warto rozwijać :
       </p>
       <ul>
-        <li><strong>Debiuty:</strong> dobierane do stylu zawodnika – dynamiczne lub strategiczne.</li>
-        <li><strong>Zadania:</strong> taktyka pojawia się w każdej partii, trzeba ją trenować.</li>
-        <li><strong>Analiza partii:</strong> pomaga zrozumieć błędy i wzmacnia mocne strony.</li>
+        <li><strong>Debiuty:</strong> dobierane do stylu zawodnika – dynamiczne ⚡ lub strategiczne 🧠.</li>
+        <li><strong>Zadania:</strong> taktyka pojawia się w każdej partii, trzeba ją trenować 🏋️‍♂️.</li>
+        <li><strong>Analiza partii:</strong> pomaga zrozumieć błędy ❌ i wzmacnia mocne strony ✅.</li>
       </ul>
     </section>
 
     <!-- Sekcja cena -->
-    <section>
-      <h2>Cena zajęć</h2>
+    <section aria-labelledby="price">
+      <h2 id="price">Cena zajęć 💸</h2>
       <ul>
-        <li>60 zł za godzinę</li>
+        <li>60 zł za godzinę ⏰</li>
       </ul>
     </section>
   </main>
 
   <!-- Stopka -->
-  <footer role="contentinfo">
+  <footer role="contentinfo" style="font-size:0.7rem; padding:0.5rem 0;">
     <p>Aleks Bancarewicz &copy; 2025. Wszystkie prawa zastrzeżone.</p>
   </footer>
 
-  <!-- Skrypt -->
+  <!-- Skrypt przełącznika motywu -->
   <script>
-    // Toggle switch - update przy starcie
     function updateTogglePosition() {
       const theme = localStorage.getItem('theme');
       const toggle = document.getElementById('themeToggle');
@@ -63,16 +61,20 @@
       if (theme === 'dark') {
         document.body.classList.add('dark');
         toggle.checked = true;
+        toggle.setAttribute('aria-checked', 'true');
       } else if (theme === 'light') {
         document.body.classList.remove('dark');
         toggle.checked = false;
+        toggle.setAttribute('aria-checked', 'false');
       } else {
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
           document.body.classList.add('dark');
           toggle.checked = true;
+          toggle.setAttribute('aria-checked', 'true');
         } else {
           document.body.classList.remove('dark');
           toggle.checked = false;
+          toggle.setAttribute('aria-checked', 'false');
         }
       }
     }
@@ -85,13 +87,14 @@
         if (this.checked) {
           document.body.classList.add('dark');
           localStorage.setItem('theme', 'dark');
+          this.setAttribute('aria-checked', 'true');
         } else {
           document.body.classList.remove('dark');
           localStorage.setItem('theme', 'light');
+          this.setAttribute('aria-checked', 'false');
         }
       });
     });
   </script>
-
 </body>
 </html>
