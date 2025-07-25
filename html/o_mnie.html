@@ -5,6 +5,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>O mnie</title>
   <link rel="stylesheet" href="css/o_mnie.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      color: #222;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    header, footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #007B5E;
+      color: white;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .responsive-img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 1rem auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    figure {
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    figcaption {
+      font-size: 0.95rem;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+    }
+
+    .switch {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+
+    /* Dark theme support (optional) */
+    body.dark {
+      background-color: #222;
+      color: #eee;
+    }
+
+    body.dark header,
+    body.dark footer {
+      background-color: #111;
+    }
+
+    body.dark a {
+      color: #88e0c1;
+    }
+  </style>
 </head>
 <body>
 
@@ -21,6 +89,7 @@
 
   <!-- MAIN -->
   <main id="mainContent" role="main">
+
     <!-- Sekcja biograficzna -->
     <section>
       <p>
@@ -33,14 +102,12 @@
       </p>
 
       <figure>
-        <img src="zdjecia/ja.jpg" alt="Ja podczas grania partii szachowej" width="600" height="400" />
+        <img src="zdjecia/ja.jpg" alt="Ja podczas grania partii szachowej" class="responsive-img" />
         <figcaption>Ja podczas grania partii</figcaption>
       </figure>
 
-      <br><br>
-
       <figure>
-        <img src="zdjecia/certyfikat.png" alt="Certyfikat instruktora szachowego" width="500" height="600" />
+        <img src="zdjecia/certyfikat.png" alt="Certyfikat instruktora szachowego" class="responsive-img" />
         <figcaption>Mój certyfikat</figcaption>
       </figure>
     </section>
@@ -83,7 +150,6 @@
 
   <!-- SKRYPT -->
   <script>
-    // Toggle switch - update przy starcie
     function updateTogglePosition() {
       const theme = localStorage.getItem('theme');
       const toggle = document.getElementById('themeToggle');
@@ -105,23 +171,22 @@
       }
     }
 
-document.addEventListener('DOMContentLoaded', function () {
-  updateTogglePosition();
+    document.addEventListener('DOMContentLoaded', function () {
+      updateTogglePosition();
 
-  const toggleSwitch = document.getElementById('themeToggle');
-  if (toggleSwitch) {
-    toggleSwitch.addEventListener('change', function () {
-      if (this.checked) {
-        document.body.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        document.body.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
+      const toggleSwitch = document.getElementById('themeToggle');
+      if (toggleSwitch) {
+        toggleSwitch.addEventListener('change', function () {
+          if (this.checked) {
+            document.body.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+          } else {
+            document.body.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+          }
+        });
       }
     });
-  }
-});
-
   </script>
 
 </body>
